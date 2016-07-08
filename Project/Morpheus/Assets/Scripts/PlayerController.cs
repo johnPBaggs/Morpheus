@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 
 	public int playerHealth = 10;
 
+	public bool dead;
 
 	public bool playerCanMove = true;
 
@@ -48,6 +49,8 @@ public class PlayerController : MonoBehaviour {
 		playerRigidbody = GetComponent<Rigidbody2D> ();
 
 		playerAnimator = GetComponent<Animator> ();
+
+		dead = false;
 
 		if (playerRigidbody == null)
 			Debug.LogError (Time.realtimeSinceStartup + " Rigidbody2d component mission from this gameobject"+ this.gameObject.ToString());
@@ -133,5 +136,11 @@ public class PlayerController : MonoBehaviour {
 		playerAnimator.SetBool ("Left", facingLeft);
 		playerAnimator.SetBool ("Front", facingForward);
 		playerAnimator.SetBool ("Back", facingBack);
+	}
+
+
+	public void getAttacked()
+	{
+		Debug.Log (Time.realtimeSinceStartup + " Player got attacked");
 	}
 }
